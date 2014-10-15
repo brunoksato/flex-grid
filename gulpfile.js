@@ -55,6 +55,7 @@ gulp.task('scripts', function() {
         .pipe(ngannotate())
         .pipe(uglify())
         .pipe(rename('flex-grid.min.js'))
+        .pipe(gulp.dest('example/'))
         .pipe(gulp.dest('dist/'));
 });
 

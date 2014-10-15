@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Grid</title>
-    <link rel="stylesheet" type="text/css" href="../src/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 <body ng-controller="HomeCtrl">
 
@@ -11,13 +11,12 @@
         <flex-grid bind="option"></flex-grid>
     </div>
 
-<script type="text/javascript" src="../src/js/vendor/angular.js"></script>
-<script type="text/javascript" src="../src/js/vendor/lodash.js"></script>
-<script type="text/javascript" src="../src/grid.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+<script type="text/javascript" src="flex-grid.min.js"></script>
 <script type="text/javascript">
 
     angular.module("app", ["grid"])
-        .factory("HomeFactory", HomeFactory)
         .controller("HomeCtrl", HomeCtrl);
 
     function HomeCtrl ($scope) { 
@@ -100,13 +99,7 @@
 
     }
 
-    function HomeFactory ($http) {
-        return{
-            get: function(){
-                return $http.get('http://localhost:8080/api/pedidoFavorito');
-            }
-        }
-    }   
+
 </script>
 </body>
 </html>
