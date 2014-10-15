@@ -1,0 +1,1 @@
+Powerfull grid in angularjs

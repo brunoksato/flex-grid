@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Grid</title>
+    <link rel="stylesheet" type="text/css" href="../src/css/vendor/bootstrap.min.css">
+</head>
+<body ng-controller="HomeCtrl">
+
+    <div class="container">
+        <flex-grid bind="option"></flex-grid>
+    </div>
+
+<script type="text/javascript" src="../src/js/vendor/angular.js"></script>
+<script type="text/javascript" src="../src/js/vendor/lodash.js"></script>
+<script type="text/javascript" src="../src/grid.js"></script>
+<script type="text/javascript">
+
+    angular.module("app", ["grid"])
+        .factory("HomeFactory", HomeFactory)
+        .controller("HomeCtrl", HomeCtrl);
+
+    function HomeCtrl ($scope) { 
+
+            $scope.dataset = [
+                {
+                    name: 'Bruno',
+                    occupation: 'Front End',
+                    item: [
+                        {
+                            idade: '20',
+                            sexo: 'masculino'                        
+                        }
+                    ]
+                },
+                {
+                    name: 'Anderson',
+                    occupation: 'Gerente Projetos',
+                    item: [
+                        {
+                            idade: '32',
+                            sexo: 'masculino'                        
+                        }
+                    ]
+                },
+                {
+                    name: 'Leonardo',
+                    occupation: 'Analista Programador',
+                    item: [
+                        {
+                            idade: '24',
+                            sexo: 'masculino'                        
+                        }
+                    ]
+                }
+            ];
+
+            $scope.datasource = [
+                {
+                    name: 'Bruno',
+                    occupation: 'Front End'
+                },
+                {
+                    name: 'Bruno',
+                    occupation: 'Front End'
+                },
+                {
+                    name: 'Bruno',
+                    occupation: 'Front End'
+                }
+            ]
+
+            $scope.option = {
+                data: $scope.dataset,
+                columns: [
+                    {
+                        text: "Nome",
+                        predicate: "name",
+                        sortable: true
+                    },
+                    {
+                        text: "Ocupação",
+                        predicate: "occupation",
+                        sortable: true
+                    }
+                ],
+                subColumns:[
+                    {
+                        text: "Idade",
+                        predicate: "idade",
+                        sortable: false
+                    },
+                    {
+                        text: "Sexo",
+                        predicate: "sexo",
+                        sortable: false
+                    }
+                ]
+            }
+
+    }
+
+    function HomeFactory ($http) {
+        return{
+            get: function(){
+                return $http.get('http://localhost:8080/api/pedidoFavorito');
+            }
+        }
+    }   
+</script>
+</body>
+</html>
