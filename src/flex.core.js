@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
 * flex.core Module

@@ -35,13 +35,13 @@ gulp.task('styles', function() {
     gulp.src(['src/styles/*.css'])
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
         .pipe(rename("flex-grid.css"))
-        .pipe(gulp.dest('dist/css/'));
+        .pipe(gulp.dest('dist/'));
 
     gulp.src(['src/styles/*.css'])
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
         .pipe(rename("flex-grid.min.css"))
         .pipe(minifycss())
-        .pipe(gulp.dest('dist/css/'));
+        .pipe(gulp.dest('dist/'));
 });
 
 
@@ -49,13 +49,13 @@ gulp.task('scripts', function() {
     gulp.src('src/*.js')
         .pipe(ngannotate())
         .pipe(concat('flex-grid.js'))
-        .pipe(gulp.dest('dist/js/'));
+        .pipe(gulp.dest('dist/'));
 
     gulp.src('src/*.js')
         .pipe(ngannotate())
         .pipe(uglify())
         .pipe(rename('flex-grid.min.js'))
-        .pipe(gulp.dest('dist/js/'));
+        .pipe(gulp.dest('dist/'));
 });
 
 

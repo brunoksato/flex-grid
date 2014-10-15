@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
 * flex.tpl Module
@@ -8,6 +8,9 @@
 angular.module('flex.tpl', [])
 	.run(template);
 
+/**
+* @ngInject
+*/
 function template ($templateCache) {
 
 		$templateCache.put('flexGrid.html', [
@@ -61,7 +64,7 @@ function template ($templateCache) {
 					'</tr>',
 				'</tbody>',
 			'</table>'
-		].join(''))
+		].join(''));
 }
 
 template.$inject= ['$templateCache'];
