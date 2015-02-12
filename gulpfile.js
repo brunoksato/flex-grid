@@ -10,7 +10,6 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     concat = require('gulp-concat'),
     clean = require('gulp-clean'),
-    sass = require('gulp-sass'),
     uglify = require('gulp-uglify'),
     ngannotate = require('gulp-ng-annotate'),
     autoprefixer = require('gulp-autoprefixer');
@@ -48,7 +47,7 @@ gulp.task('styles', function() {
 gulp.task('scripts', function() {
     gulp.src('src/*.js')
         .pipe(ngannotate())
-        .pipe(concat('flex-grid.js'))
+        .pipe(rename('flex-grid.js'))
         .pipe(gulp.dest('dist/'));
 
     gulp.src('src/*.js')
