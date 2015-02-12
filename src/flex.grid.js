@@ -21,7 +21,7 @@ function flexGrid($templateCache, $document) {
 		template: $templateCache.get('grid2.html'),
 		link: function ($scope, $element, $attr) {
 
-		    $scope.index = "";
+	        $scope.index = "";
 	        $scope.tableRowExpanded = false;
 	        $scope.tableRowIndexExpandedCurr = "";
 	        $scope.tableRowIndexExpandedPrev = "";
@@ -67,21 +67,19 @@ function flexGrid($templateCache, $document) {
 	            $scope.indexold = $scope.index;
 	        };
 
-			 $scope.sort = function(column){
-			 	if (column.sortable){
-			 		$scope.option.data = _.map(_.sortBy($scope.option.data, column.predicate));
-			 		column.sortable = false;
-			 	}
-			 	else{
-			 		$scope.option.data = _.map(_.sortBy($scope.option.data, column.predicate).reverse());
-			 		column.sortable = true;
-			 	}
-			 };
+		 $scope.sort = function(column){
+		 	if (column.sortable){
+		 		$scope.option.data = _.map(_.sortBy($scope.option.data, column.predicate));
+		 		column.sortable = false;
+		 	}
+		 	else{
+		 		$scope.option.data = _.map(_.sortBy($scope.option.data, column.predicate).reverse());
+		 		column.sortable = true;
+		 	}
+		 };
 
-		}
+	    }
 
 	};
 
 }
-
-flexGrid.$inject = ['$templateCache', '$document'];
